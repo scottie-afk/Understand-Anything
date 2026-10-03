@@ -1,0 +1,13 @@
+[Unit]
+Description=Claude Code Remote Control (lab beachhead)
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=%h/lab
+ExecStart=%h/.local/bin/claude remote-control
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=default.target
